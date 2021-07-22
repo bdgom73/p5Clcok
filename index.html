@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>   
+    
+    <title>p5js clock</title>
+</head>
+<body> 
+    <style>
+      #watch{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }    
+      #source{
+        background-color: #222222;
+        padding: 15px;
+        color : #fff;
+        border-radius: 5px;
+        opacity: 0;
+      }
+      .exp{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      button{
+        background-color: #eeeeee;
+        border: 1px solid #bbb;
+        border-radius: 5px;
+        padding: 5px;
+        cursor: pointer; 
+        margin: 2px;    
+      }
+      button:hover{
+        border: 1px solid #e97979;
+      }
+    </style>
+    <h1 style="text-align:center; color:#000">p5.js를 이용한 시계그리기</h1>
+    <div id="watch"></div>
+    <div class="exp">
+        <button onclick="viewSource()">소스보기</button>
+        <button onclick="closeSource()">닫기</button>
+    </div>
+    <pre id="source"></pre>
+    <footer style="text-align:center">
+       <h3>&copy;kij</h3>
+    </footer>
+    <script src="js/sketch.js"></script>
+    <script>
+      function viewSource(){
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {     
+          document.getElementById("source").innerHTML = this.responseText;
+          document.getElementById("source").style.opacity = 1;
+          }
+        xhttp.open("GET", "/js/sketch.js", true);
+        xhttp.send();
+      }    
+      function closeSource(){
+        document.getElementById("source").innerHTML = "";
+        document.getElementById("source").style.opacity = 0;
+      } 
+    </script>
+</body>
+</html>
