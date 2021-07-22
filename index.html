@@ -4,7 +4,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>   
-    
     <title>p5js clock</title>
 </head>
 <body> 
@@ -48,7 +47,7 @@
     <footer style="text-align:center">
        <h3>&copy;kij</h3>
     </footer>
-    <script src="js/sketch.js"></script>
+    <script src="/js/sketch.js"></script>
     <script>
       function viewSource(){
         const xhttp = new XMLHttpRequest();
@@ -56,7 +55,7 @@
           document.getElementById("source").innerHTML = this.responseText;
           document.getElementById("source").style.opacity = 1;
           }
-        xhttp.open("GET", "/js/sketch.js", true);
+        xhttp.open("GET", "/p5Clock/js/sketch.js", true);
         xhttp.send();
       }    
       function closeSource(){
